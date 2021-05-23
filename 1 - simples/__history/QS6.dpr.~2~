@@ -1,0 +1,12 @@
+program QS6;
+
+uses
+  UISubstitui in 'uISubstitui.pas',
+  USubstitui in 'uSubstitui.pas';
+
+{$R *.RES}
+
+
+begin
+
+end.

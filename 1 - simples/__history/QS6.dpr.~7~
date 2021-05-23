@@ -1,0 +1,23 @@
+program QS6;
+
+uses
+  UISubstitui in 'uISubstitui.pas',
+  USubstitui in 'uSubstitui.pas',
+  Vcl.Dialogs,
+  SysUtils;
+
+{$R *.RES}
+
+
+var
+  Subs: TSubstitui;
+
+begin
+  Subs := TSubstitui.Create;
+  try
+    ShowMessage( Subs.Substituir( 'O rato roeu a roupa do rei de roma', 'ro', 'teste' ) );
+  finally
+    FreeAndNil( Subs );
+  end;
+
+end.
