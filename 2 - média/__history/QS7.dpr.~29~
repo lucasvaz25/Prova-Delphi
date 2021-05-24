@@ -22,7 +22,7 @@ var
 begin
   Machine := TMaquina.Create;
   try
-    List := Machine.MontarTroco( 125.15 );
+    List := Machine.MontarTroco( 327.13 );
     try
       Str   := 'A entrada é 125,15 e a saída é:' + #13;
       for I := 0 to List.Count - 1 do

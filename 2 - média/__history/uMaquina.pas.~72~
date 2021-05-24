@@ -40,7 +40,6 @@ begin
 
       if ( Qntd > 0 ) then
       begin
-        Change     := False;
         ValueAfter := ValueAfter + ( Qntd * ( CValorCedula[ Cedula ] ) );
         ATroco     := SimpleRoundTo( ( ValueInit - ValueAfter ), -2 );
 
@@ -55,8 +54,7 @@ begin
             end;
           end;
 
-        if not Change then
-          Result.Add( TTroco.Create( Cedula, Qntd ) );
+        Result.Add( TTroco.Create( Cedula, Qntd ) );
 
       end;
     end;

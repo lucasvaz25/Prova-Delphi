@@ -35,7 +35,7 @@ begin
           TpCedula := 'nota';
 
         Str := Str + ( ' ' + IntToStr( Troco.Quantidade ) + ' ' + TpCedula + ' de ' +
-                    FormatFloat( '0.00', CValorCedula[ Troco.Tipo ] ) + #13 );
+                    CValorCedula[ Troco.Tipo ] + '% M - Quantidade: % D ' + #13 );
       end;
     finally
       FreeAndNil( List );

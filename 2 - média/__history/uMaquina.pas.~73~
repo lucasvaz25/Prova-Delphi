@@ -55,8 +55,7 @@ begin
             end;
           end;
 
-        if not Change then
-          Result.Add( TTroco.Create( Cedula, Qntd ) );
+        Result.Add( TTroco.Create( Cedula, Qntd ) );
 
       end;
     end;
