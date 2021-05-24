@@ -25,6 +25,7 @@ var
   Cedula: TCedula;
   ValueInit, ValueAfter: Double;
   TrocoAux: TTroco;
+  Change: Boolean;
 begin
   Result     := TList.Create;
   ValueInit  := ATroco;
@@ -39,18 +40,23 @@ begin
 
       if ( Qntd > 0 ) then
       begin
+        Change     := False;
         ValueAfter := ValueAfter + ( Qntd * ( CValorCedula[ Cedula ] ) );
         ATroco     := SimpleRoundTo( ( ValueInit - ValueAfter ), -2 );
 
         if Result.Count > 0 then
-          for J := Low( Result ) to High( Result ) do
+          for J := 0 to Result.Count - 1 do
           begin
             TrocoAux := TTroco( Result[ J ] );
             if TrocoAux.Tipo = Cedula then
-              TrocoAux.Quantidade := TrocoAux.Quantidade + Qntd
-            else
-              Result.Add( TTroco.Create( Cedula, Qntd ) );
-          end
+            begin
+              TrocoAux.Quantidade := TrocoAux.Quantidade + Qntd;
+              Change              := True;
+            end;
+          end;
+
+        if not Change then
+          Result.Add( TTroco.Create( Cedula, Qntd ) );
 
       end;
     end;
