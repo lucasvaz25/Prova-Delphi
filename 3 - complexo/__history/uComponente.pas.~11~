@@ -56,18 +56,18 @@ end;
 procedure TComponente.RemoveComponente( AComponente: TComponente );
 var
   I: Integer;
-  Removed: Boolean;
+  Removeu: Boolean;
 begin
-  Removed := False;
+  Removeu := False;
   for I   := 0 to Pred( Length( FComponentes ) ) do
   begin
-    if ( FComponentes[ I ].FName = AComponente.FName ) and not( Removed ) then
+    if ( FComponentes[ I ].FName = AComponente.FName ) and not( Removeu ) then
     begin
       FreeAndNil( FComponentes[ I ] );
-      Removed := True;
+      Removeu := True;
     end;
 
-    if Removed then
+    if Removeu then
       FComponentes[ I ] := FComponentes[ I + 1 ];
   end;
 

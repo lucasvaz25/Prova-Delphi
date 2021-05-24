@@ -40,7 +40,7 @@ begin
 
   for I := 0 to Pred( Length( Componentes ) ) do
   begin
-    case AnsiIndexStr( UpperCase( Componentes[ I ].ClassName ), 
+    case AnsiIndexStr( UpperCase( Componentes[ I ].ClassType ), 
                 [ 'TMEMO', 'TLABEL', 'TBOTAO' ] ) of
       0:
         begin
@@ -144,7 +144,92 @@ begin
         Componentes[ I ].Y := Trunc( Proportion );
       end;
     end;
-
+    // if Componentes[ I ] IS TBotao then
+    // begin
+    // Proportion := 1;
+    // if Self.LarguraPrevious > 0 then
+    // Proportion             := ( Self.Largura / Self.LarguraPrevious );
+    // Proportion               := Proportion * Componentes[ I ].Largura;
+    // Componentes[ I ].Largura := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.XPrevious > 0 then
+    // Proportion       := ( Self.X / Self.XPrevious );
+    // Proportion         := Proportion * Componentes[ I ].X;
+    // Componentes[ I ].X := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.YPrevious > 0 then
+    // Proportion       := ( Self.Y / Self.YPrevious );
+    // Proportion         := Proportion * Componentes[ I ].Y;
+    // Componentes[ I ].Y := Trunc( Proportion );
+    // end
+    // else if Componentes[ I ] IS TMemo then
+    // begin
+    // Proportion := 1;
+    // if Self.LarguraPrevious > 0 then
+    // Proportion             := ( Self.Largura / Self.LarguraPrevious );
+    // Proportion               := Proportion * Componentes[ I ].Largura;
+    // Componentes[ I ].Largura := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.AlturaPrevious > 0 then
+    // Proportion            := ( Self.Altura / Self.AlturaPrevious );
+    // Proportion              := Proportion * Componentes[ I ].Altura;
+    // Componentes[ I ].Altura := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.XPrevious > 0 then
+    // Proportion       := ( Self.X / Self.XPrevious );
+    // Proportion         := Proportion * Componentes[ I ].X;
+    // Componentes[ I ].X := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.YPrevious > 0 then
+    // Proportion       := ( Self.Y / Self.YPrevious );
+    // Proportion         := Proportion * Componentes[ I ].Y;
+    // Componentes[ I ].Y := Trunc( Proportion );
+    // end
+    // else if Componentes[ I ] IS TLabel then
+    // begin
+    // Proportion := 1;
+    // if Self.XPrevious > 0 then
+    // Proportion       := ( Self.X / Self.XPrevious );
+    // Proportion         := Proportion * Componentes[ I ].X;
+    // Componentes[ I ].X := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.YPrevious > 0 then
+    // Proportion       := ( Self.Y / Self.YPrevious );
+    // Proportion         := Proportion * Componentes[ I ].Y;
+    // Componentes[ I ].Y := Trunc( Proportion );
+    // end
+    // else
+    // begin
+    // Proportion := 1;
+    // if Self.LarguraPrevious > 0 then
+    // Proportion             := ( Self.Largura / Self.LarguraPrevious );
+    // Proportion               := Proportion * Componentes[ I ].Largura;
+    // Componentes[ I ].Largura := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.AlturaPrevious > 0 then
+    // Proportion            := ( Self.Altura / Self.AlturaPrevious );
+    // Proportion              := Proportion * Componentes[ I ].Altura;
+    // Componentes[ I ].Altura := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.XPrevious > 0 then
+    // Proportion       := ( Self.X / Self.XPrevious );
+    // Proportion         := Proportion * Componentes[ I ].X;
+    // Componentes[ I ].X := Trunc( Proportion );
+    //
+    // Proportion := 1;
+    // if Self.YPrevious > 0 then
+    // Proportion       := ( Self.Y / Self.YPrevious );
+    // Proportion         := Proportion * Componentes[ I ].Y;
+    // Componentes[ I ].Y := Trunc( Proportion );
+    // end;
   end;
 end;
 

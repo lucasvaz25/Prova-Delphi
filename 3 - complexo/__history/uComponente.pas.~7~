@@ -12,13 +12,13 @@ type
   private
     FName: String;
     FX: Integer;
-    FXPrevious: Integer;
+    FXAnterior: Integer;
     FY: Integer;
-    FYPrevious: Integer;
+    FYAnterior: Integer;
     FAltura: Integer;
-    FAlturaPrevious: Integer;
+    FAlturaAnterior: Integer;
     FLargura: Integer;
-    FLarguraPrevious: Integer;
+    FLarguraAnterior: Integer;
     FComponentes: TComponenteArray;
     procedure SetX( const Value: Integer );
     procedure SetAltura( const Value: Integer );
@@ -32,13 +32,13 @@ type
 
     property Name: String read FName write FName;
     property X: Integer read FX write SetX;
-    property XPrevious: Integer read FXPrevious;
+    property XAnterior: Integer read FXAnterior;
     property Y: Integer read FY write SetY;
-    property YPrevious: Integer read FYPrevious;
+    property YAnterior: Integer read FYAnterior;
     property Altura: Integer read FAltura write SetAltura;
-    property AlturaPrevious: Integer read FAlturaPrevious;
+    property AlturaAnterior: Integer read FAlturaAnterior;
     property Largura: Integer read FLargura write SetLargura;
-    property LarguraPrevious: Integer read FLarguraPrevious;
+    property LarguraAnterior: Integer read FLarguraAnterior;
 
   end;
 
@@ -56,18 +56,18 @@ end;
 procedure TComponente.RemoveComponente( AComponente: TComponente );
 var
   I: Integer;
-  Removed: Boolean;
+  Removeu: Boolean;
 begin
-  Removed := False;
+  Removeu := False;
   for I   := 0 to Pred( Length( FComponentes ) ) do
   begin
-    if ( FComponentes[ I ].FName = AComponente.FName ) and not( Removed ) then
+    if ( FComponentes[ I ].FName = AComponente.FName ) and not( Removeu ) then
     begin
       FreeAndNil( FComponentes[ I ] );
-      Removed := True;
+      Removeu := True;
     end;
 
-    if Removed then
+    if Removeu then
       FComponentes[ I ] := FComponentes[ I + 1 ];
   end;
 
@@ -76,25 +76,25 @@ end;
 
 procedure TComponente.SetAltura( const Value: Integer );
 begin
-  FAlturaPrevious := FAltura;
+  FAlturaAnterior := FAltura;
   FAltura         := Value;
 end;
 
 procedure TComponente.SetLargura( const Value: Integer );
 begin
-  FLarguraPrevious := FLargura;
+  FLarguraAnterior := FLargura;
   FLargura         := Value;
 end;
 
 procedure TComponente.SetX( const Value: Integer );
 begin
-  FXPrevious := FX;
+  FXAnterior := FX;
   FX         := Value;
 end;
 
 procedure TComponente.SetY( const Value: Integer );
 begin
-  FYPrevious := FY;
+  FYAnterior := FY;
   FY         := Value;
 end;
 

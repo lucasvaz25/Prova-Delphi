@@ -1,0 +1,39 @@
+unit uComponente;
+
+interface
+
+type
+
+  TComponente = class;
+
+  TComponenteArray = array of TComponente;
+
+  TComponente = class
+  private
+    FX: Integer;
+    FY: Integer;
+    FAltura: Integer;
+    FLargura: Integer;
+    FComponentes: TComponenteArray;
+  public
+    procedure AdicionaComponente( AComponente: TComponente ); virtual;
+    procedure RemoveComponente( AComponente: TComponente ); virtual;
+
+    property X: Integer;
+    property Y: Integer;
+    property Altura: Integer;
+    property Largura: Integer;
+    property Componentes: TComponenteArray;
+  end;
+
+implementation
+
+procedure TComponente.AdicionaComponente( AComponente: TComponente );
+begin
+end;
+
+procedure TComponente.RemoveComponente( AComponente: TComponente );
+begin
+end;
+
+end.

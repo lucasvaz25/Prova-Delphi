@@ -1,0 +1,98 @@
+unit uComponente;
+
+interface
+
+uses
+  Classes;
+
+type
+
+  TComponente = class;
+
+  TComponenteArray = array of TComponente;
+
+  TComponente = class( TObject )
+  private
+    FX: Integer;
+    FY: Integer;
+    FAltura: Integer;
+    FLargura: Integer;
+    FParent: TComponente;
+    procedure SetX( AX: Integer );
+    procedure SetY( AY: Integer );
+    procedure SetAltura( AAltura: Integer );
+    procedure SetLargura( ALargura: Integer );
+  protected
+    FComponentes: TComponenteArray;
+    procedure Reposicionar( AX, AY: Integer ); virtual;
+    procedure Redimensionar( AAltura, ALargura: Integer ); virtual;
+  public
+    property Parent: TComponente read FParent write FParent;
+    property X: Integer read FX write SetX;
+    property Y: Integer read FY write SetY;
+    property Altura: Integer read FAltura write SetAltura;
+    property Largura: Integer read FLargura write SetLargura;
+    constructor Create;
+    procedure AdicionaComponente( AComponente: TComponente ); virtual; abstract;
+    procedure RemoveComponente( AComponente: TComponente ); virtual; abstract;
+  end;
+
+implementation
+
+{ TComponente }
+
+constructor TComponente.Create;
+begin
+  FAltura  := 1;
+  FLargura := 1;
+end;
+
+procedure TComponente.SetAltura( AAltura: Integer );
+var
+  I: Integer;
+begin
+  for I := Low( FComponentes ) to High( FComponentes ) do
+    FComponentes[ I ].Redimensionar( AAltura, FLargura );
+  FAltura := AAltura;
+end;
+
+procedure TComponente.SetLargura( ALargura: Integer );
+var
+  I: Integer;
+begin
+  for I := Low( FComponentes ) to High( FComponentes ) do
+    FComponentes[ I ].Redimensionar( FAltura, ALargura );
+  FLargura := ALargura;
+end;
+
+procedure TComponente.SetX( AX: Integer );
+var
+  I: Integer;
+begin
+  for I := Low( FComponentes ) to High( FComponentes ) do
+    FComponentes[ I ].Reposicionar( AX, FY );
+
+  FX := AX;
+end;
+
+procedure TComponente.SetY( AY: Integer );
+var
+  I: Integer;
+begin
+  for I := Low( FComponentes ) to High( FComponentes ) do
+    FComponentes[ I ].Reposicionar( FX, AY );
+
+  FY := AY;
+end;
+
+procedure TComponente.Redimensionar( AAltura, ALargura: Integer );
+begin
+  // TO-DO: Fire related event
+end;
+
+procedure TComponente.Reposicionar( AX, AY: Integer );
+begin
+  // TO-DO: Fire related event
+end;
+
+end.
