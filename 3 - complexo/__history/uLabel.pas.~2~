@@ -34,6 +34,7 @@ end;
 
 procedure TLabel.AlteraTamanho( PosX: Integer; PosY: Integer; TamAltura: Real; TamLargura: Real );
 begin
+  // pos de x e y
   Self.X := Trunc( PosX / 2 + Self.X );
   Self.Y := Trunc( PosY / 2 + Self.Y );
 end;
